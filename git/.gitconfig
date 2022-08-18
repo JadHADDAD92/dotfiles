@@ -1,0 +1,42 @@
+[alias]
+    fa = fetch --all
+    fixup = "!f() { TARGET=$(git rev-parse "$1"); git commit --fixup=$TARGET $(@:2) && VISUAL=true git rebase -i --autostash --autosquash $TARGET^; }; f"
+    fpush = push --force-with-lease
+    graph = log --oneline --graph --decorate --all
+    pt = !git tag -l | xargs git tag -d && git fetch -t
+    pushnoci = push -o ci.skip
+    st = status
+
+[color]
+    grep = auto
+    interactive = auto
+    ui = auto
+
+[core]
+    editor = vim
+    pager = less -iXFR
+    whitespace = space-before-tab,trailing-space,
+
+[diff]
+    colorMoved = dimmed-zebra
+    submodule = log
+    tool = vimdiff
+
+[grep]
+    lineNumber = true
+
+[help]
+    autocorrect = true
+
+[init]
+    defaultBranch = main
+
+[push]
+    autoSetupRemote = true
+
+[rebase]
+    abbreviateCommands = true
+
+[user]
+    name = Jad Haddad
+    email = jad.haddad92@gmail.com
