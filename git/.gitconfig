@@ -12,6 +12,9 @@
     interactive = auto
     ui = auto
 
+[commit]
+    gpgsign = true
+
 [core]
     editor = vim
     pager = less -iXFR
@@ -28,6 +31,11 @@
 [help]
     autocorrect = true
 
+[pager]
+    show = delta
+    diff = delta
+    log = delta
+
 [init]
     defaultBranch = main
 
@@ -40,3 +48,4 @@
 [user]
     name = Jad Haddad
     email = jad.haddad92@gmail.com
+    signingkey = # gpg key
