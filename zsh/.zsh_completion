@@ -1,0 +1,4 @@
+zstyle ':completion:*:*:git*:*' ignored-patterns '*ORIG_HEAD'
+zstyle ':completion::complete:git:*:*' ignored-patterns 'check*-*'
+zstyle ':completion:*' menu select
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"

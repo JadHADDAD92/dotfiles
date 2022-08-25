@@ -1,0 +1,13 @@
+# ls aliases
+alias ls='ls --color=auto'
+alias l='ls'
+alias ll='ls -ahlF'
+
+# grep
+alias grep='grep --color=auto'
+
+# ncdu
+alias ncdu='ncdu --color=dark'
+
+# zsh
+alias reload='source ~/.zshrc'
