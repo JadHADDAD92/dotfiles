@@ -6,6 +6,8 @@
     pt = !git tag -l | xargs git tag -d && git fetch -t
     pushnoci = push -o ci.skip
     st = status
+    ls="for-each-ref --count=30 --sort=-committerdate refs/heads/ --format='%(refname:short)'" # display branches in most recent order
+
 
 [color]
     grep = auto
@@ -17,8 +19,16 @@
 
 [core]
     editor = vim
-    pager = less -iXFR
+    pager = delta
     whitespace = space-before-tab,trailing-space,
+
+[delta]
+    features = decorations
+    navigate = true # use n and N to move between diff sections
+    line-numbers=true
+
+[delta "decorations"]
+    file-style = bold yellow ul
 
 [diff]
     colorMoved = dimmed-zebra
@@ -38,6 +48,9 @@
 
 [init]
     defaultBranch = main
+
+[interactive]
+    diffFilter = delta --color-only
 
 [push]
     autoSetupRemote = true
