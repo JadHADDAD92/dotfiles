@@ -21,6 +21,8 @@ autoload -Uz compinit && compinit
 autoload -U colors && colors
 autoload -U +X bashcompinit && bashcompinit
 
+# case-insensitive matching only if there are no case-sensitive matches
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
 
 eval "$(SHELL=/bin/sh lesspipe)"
 CURRENT_DIR=$(dirname "$(realpath ${(%):-%N})")
