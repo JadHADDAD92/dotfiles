@@ -6,7 +6,7 @@
     pt = !git tag -l | xargs git tag -d && git fetch -t
     pushnoci = push -o ci.skip
     st = status
-    ls="for-each-ref --count=30 --sort=-committerdate refs/heads/ --format='%(refname:short)'" # display branches in most recent order
+    br= branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
 
 
 [color]
