@@ -1,4 +1,5 @@
 [alias]
+    br= branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
     cane = commit --amend --no-edit
     fa = fetch --all
     fixup = "!f() { TARGET=$(git rev-parse "$1"); git commit --fixup=$TARGET $(@:2) && VISUAL=true git rebase -i --autostash --autosquash $TARGET^; }; f"
@@ -9,8 +10,6 @@
     pt = !git tag -l | xargs git tag -d && git fetch -t
     pushnoci = push -o ci.skip
     st = status
-    br= branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
-
 
 [color]
     grep = auto
