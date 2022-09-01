@@ -11,3 +11,9 @@ alias ncdu='ncdu --color=dark'
 
 # zsh
 alias reload='source ~/.zshrc'
+
+# verbosity
+alias cp='cp -v'
+alias ln='ln -v'
+alias mv='mv -v'
+alias rm='rm -v'
