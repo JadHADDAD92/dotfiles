@@ -33,7 +33,7 @@
     file-style = bold yellow ul
 
 [diff]
-    colorMoved = dimmed-zebra
+    colorMoved = dimmed_zebra
     submodule = log
     tool = vimdiff
 
