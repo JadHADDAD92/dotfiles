@@ -41,7 +41,7 @@
     lineNumber = true
 
 [help]
-    autocorrect = true
+    autocorrect = 1
 
 [pager]
     show = delta
