@@ -18,7 +18,6 @@ alias ln='ln -v'
 alias mv='mv -v'
 alias rm='rm -v'
 
-alias rebase='bash /Users/jadhaddad/workspace/personal/dotfiles/git/rebase.sh'
 alias watchgit='watch --color -t -n 0.5 git graph --color=always'
 
 alias profile_local='echo -e "\x1b]1337;RemoteHost=local\x7"'
