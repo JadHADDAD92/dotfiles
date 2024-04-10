@@ -1,0 +1,59 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+path+=('/usr/local/bin')
+
+
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+
+setopt autocd beep extendedglob nomatch notify promptsubst
+
+# ctrl+<- | ctrl+->
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
+
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+  # FPATH="~/.zsh/completion:${FPATH}"
+fi
+fpath=(~/.zsh/completion $fpath)
+fpath+=~/.zfunc # autocompletions (poetry, etc...)
+
+autoload -Uz compinit && compinit -i
+autoload -Uz compinit && compinit
+autoload -U colors && colors
+autoload -U +X bashcompinit && bashcompinit
+
+# case-insensitive matching only if there are no case-sensitive matches
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
+export PATH="/usr/local/git/bin:$PATH"
+
+LOCALBINPATH=~/.local/bin
+export PATH="$LOCALBINPATH:$PATH"
+
+FLUTTERPATH=~/development/flutter/bin
+export PATH="$FLUTTERPATH:$PATH"
+
+CARGOPATH=~/.cargo/bin
+export PATH="$CARGOPATH:$PATH"
+
+GOBINPATH=~/go/bin
+export PATH="$GOBINPATH:$PATH"
+
+. ~/.zsh_aliases
+. ~/.zsh_completion
+. $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+
+# Load ZSH plugins
+antidote load
+
+eval $(SHELL=/bin/sh lesspipe.sh)
+eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"
+
+gpgconf --launch gpg-agent
+
+zstyle ':completion:*' menu select

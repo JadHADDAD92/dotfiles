@@ -1,0 +1,29 @@
+# ls aliases
+alias ls='ls --color=auto'
+alias l='ls'
+alias ll='ls -ahlF'
+
+# grep
+alias grep='grep --color=auto'
+
+# ncdu
+alias ncdu='ncdu --color=dark'
+
+# zsh
+alias reload='source ~/.zshrc'
+
+# verbosity
+alias cp='cp -v'
+alias ln='ln -v'
+alias mv='mv -v'
+alias rm='rm -v'
+
+alias rebase='bash /Users/jadhaddad/workspace/personal/dotfiles/git/rebase.sh'
+alias watchgit='watch --color -t -n 0.5 git graph --color=always'
+
+alias profile_local='echo -e "\x1b]1337;RemoteHost=local\x7"'
+alias profile_staging='echo -e "\x1b]1337;RemoteHost=staging\x7"'
+alias profile_prod='echo -e "\x1b]1337;RemoteHost=prod\x7"'
+alias localdb='psql -U wave -d backend -h localhost'
+alias localdb='usql postgres://wave@localhost/backend'
+

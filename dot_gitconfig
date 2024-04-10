@@ -1,0 +1,73 @@
+[alias]
+    br= branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative))' --sort=-committerdate
+    cane = commit --amend --no-edit
+    fa = fetch --all
+    fixup = "!f() { TARGET=$(git rev-parse "$1"); git commit --fixup=$TARGET $(@:2) && VISUAL=true git rebase -i --autostash --autosquash $TARGET^; }; f"
+    fpush = push --force-with-lease
+    graph = log --oneline --graph --decorate --all
+    ignore = "!f() { echo $1 >> .gitignore; }; f"
+    norris = push -f
+    pt = !git tag -l | xargs git tag -d && git fetch -t
+    prebase = rebase -x 'pre-commit run --from-ref HEAD~ --to-ref HEAD'
+    pushnoci = push -o ci.skip
+    st = status
+
+[color]
+    grep = auto
+    interactive = auto
+    ui = auto
+
+[commit]
+    gpgsign = true
+
+[core]
+    editor = nvim
+    pager = delta
+    whitespace = space-before-tab,trailing-space,
+
+[delta]
+    features = decorations
+    navigate = true # use n and N to move between diff sections
+    line-numbers=true
+
+[delta "decorations"]
+    file-style = bold yellow ul
+
+[diff]
+    colorMoved = dimmed_zebra
+    submodule = log
+    tool = vimdiff
+
+[grep]
+    lineNumber = true
+
+[help]
+    autocorrect = 1
+
+[pager]
+    show = delta
+    diff = delta
+    log = delta
+
+[init]
+    defaultBranch = main
+
+[interactive]
+    diffFilter = delta --color-only
+
+[push]
+    autoSetupRemote = true
+
+[rebase]
+    abbreviateCommands = true
+
+[user]
+    name = Jad Haddad
+    useConfigOnly = true
+
+[includeIf "gitdir:~/workspace/personal/"]
+    path = ~/.gitconfig.personal
+
+[includeIf "gitdir:~/workspace/work/"]
+    path = ~/.gitconfig.work
+

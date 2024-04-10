@@ -1,0 +1,25 @@
+add_newline = false
+right_format = '$status $python'
+
+[directory]
+    home_symbol = '~'
+    truncate_to_repo = false
+    truncation_length = 3
+    fish_style_pwd_dir_length = 1
+
+[docker_context]
+    disabled = true
+
+[git_branch]
+    format = '[$symbol$branch(:$remote_branch)]($style) '
+
+[python]
+    format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+
+[lua]
+    format = '[${symbol}${lua_version}]($style)'
+
+[status]
+    disabled = false
+    symbol = '✗'
+    format = '[$symbol $status]($style)'

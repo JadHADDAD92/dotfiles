@@ -1,0 +1,3 @@
+z-shell/F-Sy-H
+MichaelAquilina/zsh-you-should-use
+

@@ -1,0 +1,23 @@
+packages:
+  darwin:
+    brews:
+      - 'antidote' # zsh plugin manager
+      - 'ripgrep' # search tool
+      - 'fzf' # fuzzy finder
+      - 'fd' # find replacement
+      - 'git' # version control
+      - 'gh' # github cli
+      - 'zoxide' # directory jump
+      - 'tree' # directory listing
+      - 'htop' # process viewer
+      - 'git-delta' # git diff viewer
+      - 'sketchybar' # status bar
+      - 'tree-sitter' # syntax highlighting
+      - 'lesspipe' # less file viewer
+      - 'docker-completion' # docker completion
+      - 'node' # javascript runtime
+      - 'ncdu' # disk usage
+      - 'wget' # download tool
+      - 'duf' # disk usage
+      - 'starship' # prompt
+
