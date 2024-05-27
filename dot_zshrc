@@ -21,6 +21,7 @@ then
 fi
 fpath=(~/.zsh/completion $fpath)
 fpath+=~/.zfunc # autocompletions (poetry, etc...)
+fpath+=~/_task
 
 autoload -Uz compinit && compinit -i
 autoload -Uz compinit && compinit

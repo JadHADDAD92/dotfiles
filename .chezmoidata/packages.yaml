@@ -21,4 +21,6 @@ packages:
       - 'duf' # disk usage
       - 'starship' # prompt
       - 'termscp' # scp client
+      - 'gnupg'
+      - 'neovim'
 

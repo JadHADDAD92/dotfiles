@@ -23,3 +23,6 @@ right_format = '$status $python'
     disabled = false
     symbol = '✗'
     format = '[$symbol $status]($style)'
+[line_break]
+disabled = true
+
