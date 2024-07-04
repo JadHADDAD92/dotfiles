@@ -20,7 +20,7 @@ packages:
       - 'wget' # download tool
       - 'duf' # disk usage
       - 'starship' # prompt
-      - 'termscp' # scp client
+      - 'veeso/termscp/termscp' # scp client
       - 'gnupg'
       - 'neovim'
 
