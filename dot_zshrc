@@ -46,6 +46,9 @@ export PATH="$CARGOPATH:$PATH"
 GOBINPATH=~/go/bin
 export PATH="$GOBINPATH:$PATH"
 
+AWSPATH=/opt/homebrew/bin/aws_completer
+export PATH="$AWSPATH:$PATH"
+
 . ~/.zsh_aliases
 . ~/.zsh_completion
 . $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
