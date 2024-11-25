@@ -23,4 +23,22 @@ packages:
       - 'veeso/termscp/termscp' # scp client
       - 'gnupg'
       - 'neovim'
+  linux:
+    apts:
+      - 'ripgrep' # search tool
+      - 'fzf' # fuzzy finder
+      - 'fd-find' # find replacement
+      - 'git' # version control
+      - 'zoxide' # directory jump
+      - 'tree' # directory listing
+      - 'htop' # process viewer
+      - 'git-delta' # git diff viewer
+      - 'ncdu' # disk usage
+      - 'duf' # disk usage
+      - 'snapd' # snap package manager
+    snaps:
+      - 'nvim' # text editor
+
+
+
 

@@ -1,5 +1,6 @@
 {{ if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
+###################### MACOS ######################
 
 brew tap veeso/termscp
 
@@ -8,4 +9,23 @@ brew bundle --no-lock --file=/dev/stdin <<EOF
 brew {{ . | quote }}
 {{ end -}}
 EOF
+{{ end -}}
+
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/bash
+###################### LINUX #######################
+
+sudo apt update && sudo apt install -y \
+{{ range .packages.linux.apts -}}
+{{ . | quote }} \
+{{ end -}}
+
+# Install snap packages
+{{- if .packages.linux.snaps }}
+sudo snap install \
+{{ range .packages.linux.snaps -}}
+{{ . | quote }} \
+{{ end -}}
+{{- end }}
+
 {{ end -}}
