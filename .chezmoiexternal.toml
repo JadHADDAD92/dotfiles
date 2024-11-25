@@ -2,4 +2,5 @@
     type = "git-repo"
     url = "https://github.com/JadHADDAD92/nvim.git"
     refreshPeriod = "1s"
+    pull.args = ["--quiet"]
 
