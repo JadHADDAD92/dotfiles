@@ -63,3 +63,22 @@ eval "$(starship init zsh)"
 gpgconf --launch gpg-agent
 
 zstyle ':completion:*' menu select
+
+
+auto_activate_venv() {
+    for venv_dir in venv .venv env .env; do
+        if [ -f "$PWD/$venv_dir/bin/activate" ]; then
+            source "$PWD/$venv_dir/bin/activate"
+            echo "Activated virtual environment: $PWD/$venv_dir"
+            return
+        fi
+    done
+}
+
+# Hook into directory changes
+autoload -U add-zsh-hook
+add-zsh-hook chpwd auto_activate_venv
+
+# Run for the initial directory on shell startup
+auto_activate_venv
+
