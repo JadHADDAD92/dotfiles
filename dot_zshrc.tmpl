@@ -51,12 +51,17 @@ export PATH="$AWSPATH:$PATH"
 
 . ~/.zsh_aliases
 . ~/.zsh_completion
-. $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+. ~/.antidote/antidote.zsh
 
 # Load ZSH plugins
 antidote load
 
+{{ if eq .chezmoi.os "darwin" -}}
 eval $(SHELL=/bin/sh lesspipe.sh)
+{{ else if eq .chezmoi.os "linux" -}}
+eval $(SHELL=/bin/sh lesspipe)
+{{ end -}}
+
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 
