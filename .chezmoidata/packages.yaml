@@ -23,6 +23,7 @@ packages:
       - 'veeso/termscp/termscp' # scp client
       - 'gnupg'
       - 'neovim'
+      - 'uv' # python dependency manager
   linux:
     apts:
       - 'ripgrep' # search tool
@@ -37,8 +38,7 @@ packages:
       - 'duf' # disk usage
       - 'snapd' # snap package manager
     snaps:
-      - 'nvim' # text editor
-
-
-
+      - name: 'nvim' # text editor
+      - name: 'astral-uv' # python dependency manager
+        channel: "latest/candidate"
 

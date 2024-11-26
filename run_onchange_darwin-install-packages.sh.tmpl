@@ -22,9 +22,8 @@ sudo apt update && sudo apt install -y \
 
 # Install snap packages
 {{- if .packages.linux.snaps }}
-sudo snap install \
 {{ range .packages.linux.snaps -}}
-{{ . | quote }} \
+sudo snap install {{ .name | quote }}{{ if hasKey . "channel" }} --channel={{ .channel | quote }} --classic{{ end }}
 {{ end -}}
 {{- end }}
 
