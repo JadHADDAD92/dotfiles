@@ -19,9 +19,9 @@ if [ -n "$session_exists" ]; then
 else
   # If in a Git repo
   if [ -n "$git_root" ]; then
-    NEOVIM_NAME=
-    GIT_NAME=
-    COMMANDS_NAME=
+    NEOVIM_NAME=" Nvim"
+    GIT_NAME="󰊢 Git"
+    COMMANDS_NAME=" Commands"
     tmux new-session -d -s "$dir_name" -n " $NEOVIM_NAME "
     tmux send-keys -t "$dir_name: $NEOVIM_NAME " "nvim ." C-m
 
