@@ -53,6 +53,9 @@ GOBINPATH=~/go/bin
 export PATH="$GOBINPATH:$PATH"
 {{ end }}
 
+SCRIPTSPATH=~/scripts
+export PATH="$SCRIPTSPATH:$PATH"
+
 {{ if eq .chezmoi.os "darwin" -}}
 AWSPATH=/opt/homebrew/bin/aws_completer
 export PATH="$AWSPATH:$PATH"

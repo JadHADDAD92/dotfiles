@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Get the Git root directory (if inside a Git repo)
+git_root=$(git rev-parse --show-toplevel 2>/dev/null)
+
+# Get the current directory name (to use for the session name)
+if [ -n "$git_root" ]; then
+  dir_name=$(basename "$git_root")
+else
+  dir_name=$(basename "$PWD")
+fi
+
+# Check if a tmux session already exists for this directory
+session_exists=$(tmux ls 2>/dev/null | grep -w "$dir_name")
+
+if [ -n "$session_exists" ]; then
+  # If the session exists, just attach to it
+  tmux attach-session -t "$dir_name"
+else
+  # If in a Git repo
+  if [ -n "$git_root" ]; then
+    NEOVIM_NAME=
+    GIT_NAME=
+    COMMANDS_NAME=
+    tmux new-session -d -s "$dir_name" -n " $NEOVIM_NAME "
+    tmux send-keys -t "$dir_name: $NEOVIM_NAME " "nvim ." C-m
+
+    tmux new-window -t "$dir_name" -n " $GIT_NAME "
+    tmux send-keys -t "$dir_name: $GIT_NAME " "git st" C-m
+
+    tmux new-window -t "$dir_name" -n " $COMMANDS_NAME "
+
+    tmux select-window -t "$dir_name: $NEOVIM_NAME "
+    tmux attach-session -t "$dir_name"
+  else
+    # Not in a Git repository, just start a basic tmux session
+    tmux new-session -s "default-session"
+  fi
+fi
