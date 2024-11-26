@@ -37,17 +37,26 @@ export PATH="/usr/local/git/bin:$PATH"
 LOCALBINPATH=~/.local/bin
 export PATH="$LOCALBINPATH:$PATH"
 
+{{ if stat (joinPath .chezmoi.homeDir "development/flutter/bin") }}
 FLUTTERPATH=~/development/flutter/bin
 export PATH="$FLUTTERPATH:$PATH"
+{{ end -}}
 
+
+{{ if stat (joinPath .chezmoi.homeDir ".cargo") }}
 CARGOPATH=~/.cargo/bin
 export PATH="$CARGOPATH:$PATH"
+{{ end -}}
 
+{{ if stat (joinPath .chezmoi.homeDir "go/bin") }}
 GOBINPATH=~/go/bin
 export PATH="$GOBINPATH:$PATH"
+{{ end }}
 
+{{ if eq .chezmoi.os "darwin" -}}
 AWSPATH=/opt/homebrew/bin/aws_completer
 export PATH="$AWSPATH:$PATH"
+{{ end -}}
 
 . ~/.zsh_aliases
 . ~/.zsh_completion
