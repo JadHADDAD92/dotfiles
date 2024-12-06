@@ -63,7 +63,11 @@ export PATH="$AWSPATH:$PATH"
 
 . ~/.zsh_aliases
 . ~/.zsh_completion
+{{ if eq .chezmoi.os "darwin" -}}
+. $(brew --prefix)/share/antidote/antidote.zsh
+{{ else if eq .chezmoi.os "linux" -}}
 . ~/.antidote/antidote.zsh
+{{ end -}}
 
 # Load ZSH plugins
 antidote load
